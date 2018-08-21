@@ -1,5 +1,16 @@
 function highestScore (students) {
-  
+   var Obj={}
+  for (var i = 0; i < students.length; i++) {
+    if (Obj[students[i].class]===undefined) {
+      Obj[students[i].class]= {name: students[i].name, score: students[i].score}
+    }
+    else {
+      if (students[i].score>Obj[students[i].class].score) {
+        Obj[students[i].class]={name :students[i].name+" "+i, score : students[i].score+" "+i}
+      }
+    }
+  }
+  return Obj
   }
 
 // TEST CASE
@@ -11,7 +22,7 @@ console.log(highestScore([
   },
   {
     name: 'Alexei',
-    score: 85,
+    score: 78,
     class: 'wolves'
   },
   {
@@ -21,7 +32,7 @@ console.log(highestScore([
   },
   {
     name: 'Anastasia',
-    score: 78,
+    score: 85,
     class: 'wolves'
   }
 ]));

@@ -1,5 +1,14 @@
 function graduates (students) {
-  
+  var Obj={}
+for (var i = 0; i < students.length; i++) {
+    Obj[students[i].class]=[]
+  for (var j = 0; j < students.length; j++){
+  if (students[j].class===students[i].class && students[j].score>75) {
+    Obj[students[i].class].push({name: students[j].name, score: students[j].score})
+  }
+  }
+}
+return Obj
 }
 
 
