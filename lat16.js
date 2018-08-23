@@ -24,15 +24,21 @@ CONSTRAINTS
 
 function deleteUndefinedKeys (data) {
 for (var i = 0; i < data.length; i++) {
-  Object.keys(data[i]).forEach
-  (
-    variabel=>{
-    if (data[i][variabel]===undefined) {
-      delete data[i][variabel]
+  for (var j in data[i]) {
+    if (data[i][j]===undefined) {
+      delete data[i][j]
     }
-    }
-  )
+  }
 }
+
+// for (var i = 0; i < data.length; i++) {
+//   var keys= Object.keys(data[i])
+//   for (var j = 0; j < keys.length; j++) {
+//     if (data[i][keys[j]]===undefined) {
+//       delete data[i][keys[j]]
+//     }
+//   }
+// }
 return data
 }
 
